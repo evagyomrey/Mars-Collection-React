@@ -2,18 +2,21 @@ import React, { Component } from "react";
 
 import FigureObject from "../../components/UI/FigureObject/FigureObject";
 import InformativeArticle from "../../components/InformativeArticle/InformativeArticle";
-import * as actions from '../../store/actions/index';
+import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
-import Loader from '../../components/UI/Loader/Loader';
+import Loader from "../../components/UI/Loader/Loader";
 import "./LearnMore.css";
 
-const ROVER_INFORMATION = [{name: "Curiosity"},{name: "Opportunity"},{name: "Spirit"}];
+const ROVER_INFORMATION = [
+  { name: "Curiosity" },
+  { name: "Opportunity" },
+  { name: "Spirit" }
+];
 
 class LearnMore extends Component {
-
-componentDidMount () {
-  this.props.loadArticlesFromServer();
-}
+  componentDidMount() {
+    this.props.loadArticlesFromServer();
+  }
 
   render() {
     //// ARTICLES
@@ -23,14 +26,8 @@ componentDidMount () {
     });
     //// ROVER PICTURES
     const roverFigures = ROVER_INFORMATION.map((ob, index) => {
-      return (
-        <FigureObject
-          pictureName={ob.name}
-          key={index}
-        />
-      );
+      return <FigureObject pictureName={ob.name} key={index} />;
     });
-
 
     return (
       <div className="mars-main">
@@ -67,13 +64,15 @@ const mapStateToProps = state => {
     loading: state.learnMore.loading,
     marsData: state.learnMore.marsData
   };
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        loadArticlesFromServer: (pictureSource) => dispatch(actions.loadArticlesFromServer())
-    };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    loadArticlesFromServer: () => dispatch(actions.loadArticlesFromServer())
+  };
+};
 
-export default connect(mapStateToProps,mapDispatchToProps)(LearnMore);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LearnMore);
