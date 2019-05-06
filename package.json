@@ -4,11 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0",
+    "react-scripts": "2.1.8",
     "react-materialize": "^2.2.0",
     "react-redux": "~5.0.7",
     "react-router": "^4.2.0",
@@ -22,5 +20,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": [
+    "last 3 Chrome versions",
+    "last 3 ChromeAndroid versions",
+    "last 3 Firefox versions",
+    "last 3 Edge versions",
+    "Safari >= 9",
+    "iOS >= 9.3",
+    "ie >= 11",
+    "ie_mob >= 11",
+    ">= 0.5%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
